@@ -171,6 +171,8 @@ For the passengers picked up in October 2019 in the zone name "East Harlem North
 Note: it's tip, not trip
 
 We need the name of the zone, not the ID.
+![Q6](https://github.com/user-attachments/assets/bc71ee39-33ec-4d38-9931-37259cfc29cc)
+
 
 ### Question 7. Terraform Workflow
 
