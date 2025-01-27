@@ -95,3 +95,11 @@ docker-compose down
 ## Setting Up Terraform
 
 ## GCP and Big Query Deployment
+
+## Answers to Docker , SQL Query Analysis and Terraform Questions : 
+### Question 1. Understanding docker first run
+Run docker with the `python:3.12.8` image in an interactive mode, use the entrypoint `bash`.
+What's the version of pip in the image?
+
+![Screenshot (28).png](attachment:6cf3914f-c084-4add-82f4-fb347d262e95:Screenshot_(28).png)
+
