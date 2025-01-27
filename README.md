@@ -100,6 +100,78 @@ docker-compose down
 ### Question 1. Understanding docker first run
 Run docker with the `python:3.12.8` image in an interactive mode, use the entrypoint `bash`.
 What's the version of pip in the image?
+![Q1](https://github.com/user-attachments/assets/aec9e63b-0d46-4573-ad0e-edb0292c9b5c)
 
-![Screenshot (28).png](attachment:6cf3914f-c084-4add-82f4-fb347d262e95:Screenshot_(28).png)
+### Question 2. Understanding Docker networking and docker-compose
+Given the following docker-compose.yaml, what is the hostname and port that pgadmin should use to connect to the postgres database?
+```docker
+services:
+  db:
+    container_name: postgres
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'ny_taxi'
+    ports:
+      - '5433:5432'
+    volumes:
+      - vol-pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "pgadmin@pgadmin.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin"
+    ports:
+      - "8080:80"
+    volumes:
+      - vol-pgadmin_data:/var/lib/pgadmin  
+
+volumes:
+  vol-pgdata:
+    name: vol-pgdata
+  vol-pgadmin_data:
+    name: vol-pgadmin_data
+```
+![Q 2](https://github.com/user-attachments/assets/d54922a3-c863-4d3c-9ce5-17cdd76d2474)
+
+
+### Question 3. Trip Segmentation Count
+During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusive), how many trips, respectively, happened:
+
+1. Up to 1 mile
+2. In between 1 (exclusive) and 3 miles (inclusive),
+3. In between 3 (exclusive) and 7 miles (inclusive),
+4. In between 7 (exclusive) and 10 miles (inclusive),
+5. Over 10 miles
+
+
+![Q 3](https://github.com/user-attachments/assets/1def7b82-dbda-4d2b-b365-65a2b135a7a4)
+
+
+### Question 4. Longest trip for each day
+Which was the pickup day with the longest trip distance? Use the pick up time for your calculations.
+
+Tip: For every day, we only care about one single trip with the longest distance.
+![Q 4](https://github.com/user-attachments/assets/e47268d0-1bde-4ebb-aa2a-684e0455edef)
+
+
+### Question 5. Three biggest pickup zones
+Which were the top pickup locations with over 13,000 in total_amount (across all trips) for 2019-10-18?
+
+Consider only lpep_pickup_datetime when filtering by date.
+![Q5](https://github.com/user-attachments/assets/577851b6-59d0-41a2-97cc-b8dffcbb5247)
+
+### Question 6. Largest tip
+
+For the passengers picked up in October 2019 in the zone name "East Harlem North" which was the drop off zone that had the largest tip?
+
+Note: it's tip, not trip
+
+We need the name of the zone, not the ID.
+
+### Question 7. Terraform Workflow
+
 
